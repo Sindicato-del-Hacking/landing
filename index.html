@@ -179,6 +179,10 @@
 
   footer.site { border-top: 1px solid var(--line); padding: 3rem 0; color: var(--bone-dim); }
   footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+  .footer-social { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem; }
+  .footer-social a { display: inline-flex; align-items: center; gap: .5rem; color: var(--bone-dim); text-decoration: none; }
+  .footer-social a:hover { color: var(--bone); }
+  .footer-social svg { width: 1.4rem; height: 1.4rem; fill: currentColor; }
 
   @media (max-width: 760px) {
     nav { padding: 1rem 5vw; }
@@ -347,6 +351,13 @@
   <div class="wrap mono">
     <span>© <span id="y">2026</span> El Sindicato del Hacking</span>
     <span>Asuntos digitales. Siempre con permiso.</span>
+    <div class="footer-social">
+      <a href="https://www.youtube.com/@sindicatodelhacking" target="_blank" rel="noopener noreferrer" aria-label="Canal de YouTube de El Sindicato del Hacking">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+        <span>@sindicatodelhacking</span>
+      </a>
+      <a href="https://x.com/SindicatoHack" target="_blank" rel="noopener noreferrer" aria-label="El Sindicato del Hacking en X / Twitter">X / Twitter</a>
+    </div>
   </div>
 </footer>
 <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
