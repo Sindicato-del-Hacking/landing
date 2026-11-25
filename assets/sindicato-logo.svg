@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 190" role="img" aria-labelledby="title">
+  <title id="title">El Sindicato del Hacking</title>
+  <circle cx="95" cy="95" r="89" fill="#0b0907"/>
+  <circle cx="95" cy="95" r="84" fill="none" stroke="#e9dfc8" stroke-width="1.5"/>
+  <circle cx="95" cy="95" r="77" fill="none" stroke="#9e1b1b" stroke-width="3"/>
+  <path d="M95 29 137 46v46c0 33-19 56-42 69-23-13-42-36-42-69V46z" fill="#15110d" stroke="#e9dfc8" stroke-width="2"/>
+  <path d="M72 48h46l-3 12H75z" fill="#e9dfc8"/>
+  <path d="M76 61h38c3 0 5 3 5 6l-2 15c-1 5-4 7-8 7H80c-4 0-7-2-8-7l-2-15c0-3 2-6 6-6z" fill="#e9dfc8"/>
+  <path d="M78 87 66 135M88 90 85 139M99 90l4 49M109 87l14 48" stroke="#c8352a" stroke-width="1.5"/>
+  <circle cx="66" cy="137" r="3" fill="#e9dfc8"/><circle cx="85" cy="141" r="3" fill="#e9dfc8"/>
+  <circle cx="103" cy="141" r="3" fill="#e9dfc8"/><circle cx="123" cy="137" r="3" fill="#e9dfc8"/>
+  <text x="200" y="76" fill="#a89d86" font-family="Georgia,serif" font-size="22" font-style="italic" letter-spacing="8">EL</text>
+  <text x="196" y="132" fill="#e9dfc8" font-family="Georgia,serif" font-size="58" letter-spacing="1">SINDICATO</text>
+  <path d="M200 151h90" stroke="#c8352a" stroke-width="3"/>
+  <text x="305" y="160" fill="#a89d86" font-family="Georgia,serif" font-size="23" letter-spacing="8">DEL HACKING</text>
+</svg>

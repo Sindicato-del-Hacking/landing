@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Sello de El Sindicato del Hacking</title>
+  <circle cx="256" cy="256" r="246" fill="#0b0907"/>
+  <circle cx="256" cy="256" r="232" fill="none" stroke="#e9dfc8" stroke-width="2"/>
+  <circle cx="256" cy="256" r="218" fill="none" stroke="#9e1b1b" stroke-width="5"/>
+  <path d="M256 79 369 125v119c0 91-52 153-113 188-61-35-113-97-113-188V125z" fill="#15110d" stroke="#e9dfc8" stroke-width="5"/>
+  <path d="M256 106 342 141v101c0 71-37 122-86 153-49-31-86-82-86-153V141z" fill="none" stroke="#9e1b1b" stroke-width="2"/>
+  <g fill="none" stroke="#c8352a" stroke-width="2.5" opacity=".95">
+    <path d="M207 247 177 349M237 258 229 358M267 258 283 358M297 245 337 349"/>
+  </g>
+  <g fill="#e9dfc8" stroke="#0b0907" stroke-width="3">
+    <path d="M192 149h128l-8 37H200z"/>
+    <path d="M202 181h110c8 0 13 7 12 15l-6 40c-2 12-9 19-21 19h-78c-12 0-19-7-21-19l-6-40c-1-8 4-15 10-15z"/>
+    <rect x="207" y="226" width="18" height="40" rx="9"/>
+    <rect x="230" y="232" width="18" height="47" rx="9"/>
+    <rect x="253" y="232" width="18" height="45" rx="9"/>
+    <rect x="276" y="226" width="17" height="38" rx="8.5"/>
+    <path d="M311 199c15 3 27 15 31 25 3 8-4 13-10 9l-22-17z"/>
+  </g>
+  <path d="M192 151h128" stroke="#9e1b1b" stroke-width="4"/>
+  <g fill="#0b0907" stroke="#e9dfc8" stroke-width="2">
+    <circle cx="177" cy="354" r="10"/><circle cx="229" cy="363" r="10"/>
+    <circle cx="283" cy="363" r="10"/><circle cx="337" cy="354" r="10"/>
+  </g>
+  <text x="256" y="45" fill="#e9dfc8" font-family="Georgia,serif" font-size="17" letter-spacing="4" text-anchor="middle">EL SINDICATO</text>
+  <text x="256" y="487" fill="#e9dfc8" font-family="Georgia,serif" font-size="17" letter-spacing="4" text-anchor="middle">DEL HACKING</text>
+</svg>

@@ -4,11 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>El Sindicato del Hacking — Podcast</title>
-<meta name="description" content="El Sindicato del Hacking: el podcast de ciberseguridad en español. Brechas, ciberdelincuentes y las familias que mueven los hilos de Internet.">
+<meta name="description" content="El Sindicato del Hacking: ciberseguridad, amenazas, reverse engineering e historias del sector. Sin humo, con contexto y una ronda más.">
 <meta property="og:title" content="El Sindicato del Hacking">
-<meta property="og:description" content="Una oferta que tu firewall no podrá rechazar.">
+<meta property="og:description" content="Ciberseguridad sin humo. Historias del sector, contexto y una ronda más.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230b0907'/><text x='50' y='72' font-size='64' text-anchor='middle' fill='%23e9dfc8' font-family='serif' font-style='italic'>S</text></svg>">
+<meta property="og:image" content="assets/sindicato-mark.svg">
+<link rel="icon" type="image/svg+xml" href="assets/sindicato-mark.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -59,6 +60,7 @@
     background: linear-gradient(var(--ink), transparent);
   }
   nav .brand { font: italic 700 1.15rem var(--display); text-decoration: none; }
+  nav .brand img { display: block; width: 218px; height: auto; }
   nav ul { display: flex; gap: 2rem; list-style: none; }
   nav ul a { text-decoration: none; color: var(--bone-dim); transition: color .3s; }
   nav ul a:hover { color: var(--bone); }
@@ -71,12 +73,7 @@
     position: relative;
     background: radial-gradient(ellipse 60% 45% at 50% 22%, rgba(233,223,200,.09), transparent 70%);
   }
-  .puppeteer { width: min(420px, 72vw); margin: 0 auto 2rem; display: block; animation: sway 7s ease-in-out infinite; transform-origin: 50% 0; }
-  @keyframes sway { 50% { transform: rotate(1.4deg) translateY(4px); } }
-  .puppeteer .string { stroke-dasharray: 340; stroke-dashoffset: 340; animation: draw 2.2s 1s cubic-bezier(.6,0,.3,1) forwards; }
-  .puppeteer .cursor { opacity: 0; animation: blink 1.1s 3s steps(1) infinite; }
-  @keyframes draw { to { stroke-dashoffset: 0; } }
-  @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  .hero-logo { width: min(270px, 58vw); display: block; margin: 0 auto 2rem; filter: drop-shadow(0 16px 40px rgba(158,27,27,.16)); }
 
   .kicker { color: var(--bone-dim); margin-bottom: 1.4rem; }
   h1 {
@@ -157,6 +154,26 @@
   .member .role { color: var(--blood-hi); margin-bottom: .4rem; }
   .member h3 { font: 400 1.8rem/1.1 var(--display); margin-bottom: .6rem; }
   .member p { color: var(--bone-dim); font-size: 1.1rem; }
+  .member .portrait img { object-position: center top; filter: grayscale(.2) contrast(1.04); transition: transform .5s; }
+  .member:hover .portrait img { transform: scale(1.04); }
+  .member .role { margin-top: .3rem; }
+  .member .social { display: inline-block; margin-top: 1rem; color: var(--bone); font: 500 .7rem var(--mono); letter-spacing: .12em; text-decoration-color: var(--blood-hi); text-underline-offset: .35em; text-transform: uppercase; }
+  .member .social:hover { color: #fff; }
+  .family { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .member .portrait { aspect-ratio: 4/4.5; }
+  .ep.pending { cursor: default; }
+  .ep.pending:hover { padding-left: 0; }
+  .ep.pending:hover::after { width: 0; }
+  .ep .status { color: var(--blood-hi); }
+  .ep .meta { min-width: 9rem; }
+  .listen .listen-note { max-width: 50ch; margin-inline: auto; }
+  .topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+  .topic { background: var(--ink); padding: 1.6rem; }
+  .topic h3 { font: 400 1.4rem/1.2 var(--display); margin-bottom: .55rem; }
+  .topic p { color: var(--bone-dim); font-size: 1.05rem; }
+  .social-strip { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin-top: 2rem; }
+  .social-strip a { padding: .65rem 1rem; border: 1px solid var(--line); color: var(--bone-dim); text-decoration: none; font: 500 .68rem var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+  .social-strip a:hover { border-color: var(--blood-hi); color: var(--bone); }
 
   /* LISTEN */
   .listen { text-align: center; }
@@ -168,84 +185,52 @@
   footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
 
   @media (max-width: 760px) {
-    nav ul { display: none; }
+    nav { padding: 1rem 5vw; }
+    nav .brand img { width: 170px; }
+    nav ul { gap: .8rem; font-size: .62rem; }
     .manifesto { grid-template-columns: 1fr; gap: 3rem; }
     .section-head { grid-template-columns: 1fr; }
     .section-head p { grid-column: 1; }
     .ep { grid-template-columns: 1fr; gap: .6rem; }
     .ep .meta { text-align: left; }
+    .topics { grid-template-columns: 1fr; }
     section { padding: 5rem 0; }
+  }
+  @media (max-width: 430px) {
+    nav .brand img { width: 130px; }
+    nav ul { gap: .55rem; letter-spacing: .06em; }
+    nav ul li:first-child { display: none; }
+    .mono { letter-spacing: .1em; }
   }
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
     .reveal { opacity: 1; transform: none; }
-    .puppeteer .string { stroke-dashoffset: 0; }
-    .puppeteer .cursor { opacity: 1; }
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="brand" href="#">El Sindicato</a>
+  <a class="brand" href="#inicio" aria-label="El Sindicato del Hacking, inicio"><img src="assets/sindicato-logo.svg" alt=""></a>
   <ul class="mono">
-    <li><a href="#codigo">El código</a></li>
+    <li><a href="#codigo">El pacto</a></li>
     <li><a href="#episodios">Episodios</a></li>
-    <li><a href="#familia">La familia</a></li>
+    <li><a href="#familia">La famiglia</a></li>
     <li><a href="#escuchar">Escuchar</a></li>
   </ul>
 </nav>
 
-<header class="hero">
+<header class="hero" id="inicio">
   <div class="wrap">
-    <!-- Original illustration: a hand pulling strings attached to a terminal prompt -->
-    <svg class="puppeteer reveal" viewBox="0 0 400 330" role="img" aria-label="Una mano que mueve los hilos de un terminal">
-      <defs>
-        <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stop-color="#e9dfc8"/>
-          <stop offset="1" stop-color="#bfb299"/>
-        </linearGradient>
-      </defs>
-      <g fill="url(#skin)">
-        <!-- cuff -->
-        <path d="M150 0h100l-6 46H156z" fill="#1b1611" stroke="#e9dfc8" stroke-opacity=".35"/>
-        <rect x="152" y="40" width="96" height="10" fill="#e9dfc8" opacity=".9"/>
-        <!-- palm -->
-        <path d="M156 50h88c6 0 10 6 10 14l-4 46c-1 10-8 16-18 16h-64c-10 0-17-6-18-16l-4-46c0-8 4-14 10-14z"/>
-        <!-- fingers -->
-        <rect x="160" y="100" width="18" height="76" rx="9"/>
-        <rect x="181" y="104" width="18" height="88" rx="9"/>
-        <rect x="202" y="104" width="18" height="84" rx="9"/>
-        <rect x="223" y="100" width="17" height="66" rx="8.5"/>
-        <!-- thumb -->
-        <path d="M246 74c14 4 30 18 34 34 2 8-4 13-11 10-10-4-18-14-26-24z"/>
-      </g>
-      <!-- knuckle shading -->
-      <g stroke="#0b0907" stroke-opacity=".25" stroke-width="1.4" fill="none">
-        <path d="M164 146h10M185 156h10M206 154h10M227 140h9"/>
-      </g>
-      <!-- strings -->
-      <g stroke="#e9dfc8" stroke-width="1" stroke-opacity=".7" fill="none">
-        <path class="string" d="M169 174 L96 298"/>
-        <path class="string" d="M190 190 L168 298"/>
-        <path class="string" d="M211 186 L232 298"/>
-        <path class="string" d="M231 164 L304 298"/>
-      </g>
-      <!-- terminal prompt -->
-      <g font-family="IBM Plex Mono, monospace" font-size="38" fill="#e9dfc8">
-        <text x="78" y="318">$</text>
-        <text x="132" y="318" fill="#c8352a">sudo</text>
-        <rect class="cursor" x="282" y="290" width="22" height="34" fill="#c8352a"/>
-      </g>
-    </svg>
+    <img class="hero-logo reveal" src="assets/sindicato-mark.svg" alt="Sello de El Sindicato del Hacking" width="512" height="512">
 
-    <p class="kicker mono reveal d1">Podcast de ciberseguridad · en español</p>
+    <p class="kicker mono reveal d1">Ciberseguridad · famiglia · en español</p>
     <h1 class="reveal d2">
       <span class="el">El</span>
       Sindicato<br><span class="del">del</span> Hacking
     </h1>
-    <p class="tagline reveal d3">Te haremos una oferta <em>que tu firewall no podrá rechazar.</em></p>
-    <a class="btn reveal d4" href="#escuchar">Entrar en la familia <span aria-hidden="true">→</span></a>
+    <p class="tagline reveal d3">Ciberseguridad sin humo. <em>Historias del sector y una ronda más.</em></p>
+    <a class="btn reveal d4" href="#episodios">Abrir los expedientes</a>
   </div>
   <span class="scroll-hint mono" aria-hidden="true">↓</span>
 </header>
@@ -255,19 +240,34 @@
     <div class="wrap">
       <div class="section-head">
         <span class="num">I</span>
-        <h2>El código <em>de honor</em></h2>
+        <h2>El código <em>de la famiglia</em></h2>
       </div>
       <div class="manifesto">
         <blockquote>
-          “Nunca subestimes a un atacante. Nunca le cuentes a nadie de fuera lo que piensas de tu red.”
-          <footer>— Regla de la casa</footer>
+          “En esta casa, los bugs se investigan antes de levantar la voz.”
+          <footer>— Primer mandamiento del Sindicato</footer>
         </blockquote>
         <ol class="rules">
-          <li>Cada semana, las brechas, los grupos y los golpes que están moviendo los hilos de Internet.</li>
-          <li>Contado como se cuentan las buenas historias: con contexto, con nombres y sin humo.</li>
-          <li>Investigadores, analistas y operadores del lado bueno sentados a la mesa.</li>
-          <li>Lo que se dice en el Sindicato, se aprende en el Sindicato.</li>
+          <li>Hablamos de amenazas, malware, reverse engineering y de las herramientas que mueven el sector.</li>
+          <li>Primero el contexto; luego la atribución. Aquí no se acusa a nadie por llevar gabardina.</li>
+          <li>La IA también se sienta a la mesa. No le damos las llaves del negocio sin mirar los logs.</li>
+          <li>Humor negro, criterio técnico y hacking ético. El único permiso que saltamos es el de hablar demasiado.</li>
         </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="temas">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">II</span>
+        <h2>Asuntos <em>de familia</em></h2>
+        <p>Los temas cambian. El método no: abrir el expediente, seguir las pistas y separar el dato del cuento.</p>
+      </div>
+      <div class="topics">
+        <article class="topic"><h3>Amenazas y operaciones</h3><p>Quién está detrás, qué busca y qué sabemos de verdad. Sin convertir una hipótesis en sentencia.</p></article>
+        <article class="topic"><h3>Reverse engineering</h3><p>Malware, binarios y herramientas por dentro. El código canta; a veces necesita un poco de presión.</p></article>
+        <article class="topic"><h3>IA y seguridad</h3><p>Agentes, exploits, modelos y fallos humanos. La máquina propone; la famiglia revisa el diff.</p></article>
       </div>
     </div>
   </section>
@@ -275,27 +275,21 @@
   <section id="episodios">
     <div class="wrap">
       <div class="section-head">
-        <span class="num">II</span>
+        <span class="num">III</span>
         <h2>Los <em>expedientes</em></h2>
-        <p>Cada episodio, un caso. Elige por dónde empezar.</p>
+        <p>Empieza por el piloto. El primer caso del Sindicato ya está sobre la mesa.</p>
       </div>
-      <!-- ponytail: episodios a mano; si pasan de ~20, generarlos desde el RSS -->
       <ol class="episodes">
-        <li><a class="ep" href="#escuchar">
-          <span class="n">03</span>
-          <div><h3>La familia ransomware</h3><p>Afiliados, negociadores y lavanderías: cómo se organiza el crimen como servicio.</p></div>
-          <div class="meta mono">Próximamente<br><span class="play" aria-hidden="true">▶</span></div>
+        <li><a class="ep" href="https://www.youtube.com/watch?v=2Tdmh2HjbcA" target="_blank" rel="noopener noreferrer">
+          <span class="n">0</span>
+          <div><h3>Episodio Piloto</h3><p>La primera ronda. Conocemos el Sindicato y ponemos las reglas de la casa.</p></div>
+          <div class="meta mono">Ver en YouTube<br><span class="play" aria-hidden="true">▶</span></div>
         </a></li>
-        <li><a class="ep" href="#escuchar">
-          <span class="n">02</span>
-          <div><h3>Ojos en la red</h3><p>Brokers de acceso inicial y el mercado de credenciales robadas.</p></div>
-          <div class="meta mono">Próximamente<br><span class="play" aria-hidden="true">▶</span></div>
-        </a></li>
-        <li><a class="ep" href="#escuchar">
+        <li><article class="ep pending" aria-label="Episodio 1, enlace pendiente">
           <span class="n">01</span>
-          <div><h3>Bienvenidos al Sindicato</h3><p>Quiénes somos, de qué vamos a hablar y por qué nadie sale de aquí sin aprender algo.</p></div>
-          <div class="meta mono">Episodio piloto<br><span class="play" aria-hidden="true">▶</span></div>
-        </a></li>
+          <div><h3>La IA ya encuentra bugs. ¿Quién responde?</h3><p>Agentes, exploits y deuda técnica: hasta dónde ayuda la IA en seguridad y dónde empieza el lío.</p></div>
+          <div class="meta mono status">Episodio 1<br>Enlace pendiente</div>
+        </article></li>
       </ol>
     </div>
   </section>
@@ -303,28 +297,38 @@
   <section id="familia">
     <div class="wrap">
       <div class="section-head">
-        <span class="num">III</span>
-        <h2>La <em>familia</em></h2>
-        <p>Los que se sientan a la cabecera de la mesa.</p>
+        <span class="num">IV</span>
+        <h2>La <em>famiglia</em></h2>
+        <p>Cuatro cabezas en la mesa. Una sola regla: traer contexto antes de traer conclusiones.</p>
       </div>
       <div class="family">
         <article class="member">
-          <div class="portrait"><span>D</span></div>
+          <div class="portrait"><img src="assets/team/marc-rivero.jpg" alt="Marc Rivero" loading="lazy" width="400" height="400"></div>
           <p class="role mono">Il Capo</p>
-          <h3>Tu nombre</h3>
-          <p>Fundador del Sindicato. Investigador de amenazas y reverser.</p>
+          <h3>Marc Rivero</h3>
+          <p>Fundador del Sindicato. Investigador de amenazas y reverser. Si algo no cuadra, pide el binario.</p>
+          <a class="social" href="https://x.com/seifreed" target="_blank" rel="noopener noreferrer">X · @seifreed</a>
         </article>
         <article class="member">
-          <div class="portrait"><span>C</span></div>
-          <p class="role mono">Consigliere</p>
-          <h3>Co-host</h3>
-          <p>Pone el contexto, la calma y las preguntas incómodas.</p>
+          <div class="portrait"><img src="assets/team/martin-vigo.png" alt="Martín Vigo" loading="lazy" width="400" height="883"></div>
+          <p class="role mono">Il Consigliere</p>
+          <h3>Martín Vigo</h3>
+          <p>Pone el contexto, la calma y las preguntas incómodas. También pregunta quién aprobó el deploy.</p>
+          <a class="social" href="https://x.com/martin_vigo" target="_blank" rel="noopener noreferrer">X · @martin_vigo</a>
         </article>
         <article class="member">
-          <div class="portrait"><span>?</span></div>
-          <p class="role mono">El invitado</p>
-          <h3>Cada semana</h3>
-          <p>Gente del sector que viene a contar lo que normalmente no se cuenta.</p>
+          <div class="portrait"><img src="assets/team/joan-martinez.jpg" alt="Joan Martínez" loading="lazy" width="800" height="800"></div>
+          <p class="role mono">Il Sottocapo</p>
+          <h3>Joan Martínez</h3>
+          <p>El segundo al mando. Se asegura de que el plan sobreviva al lunes y a las preguntas del Capo.</p>
+          <span class="social">En la mesa del Sindicato</span>
+        </article>
+        <article class="member">
+          <div class="portrait"><img src="assets/team/vicente-diaz.jpg" alt="Vicente Díaz" loading="lazy" width="800" height="800"></div>
+          <p class="role mono">Il Caporegime</p>
+          <h3>Vicente Díaz</h3>
+          <p>Capitán de la cuadrilla. Coordina los expedientes; la única cuenta que cierra con un hash.</p>
+          <a class="social" href="https://x.com/trompi" target="_blank" rel="noopener noreferrer">X · @trompi</a>
         </article>
       </div>
     </div>
@@ -332,15 +336,12 @@
 
   <section id="escuchar" class="listen">
     <div class="wrap">
-      <h2>Siéntate a la mesa</h2>
-      <p>Disponible en tu plataforma de siempre.</p>
+        <h2>Siéntate <em>a la mesa</em></h2>
+        <p class="listen-note">Empieza por el piloto. El enlace del episodio 1 aparecerá aquí cuando esté publicado; no vamos a dejarte un botón que no lleva a ningún sitio.</p>
       <div class="platforms">
-        <a class="btn" href="#" rel="noopener">Spotify</a>
-        <a class="btn" href="#" rel="noopener">Apple Podcasts</a>
-        <a class="btn" href="#" rel="noopener">iVoox</a>
-        <a class="btn" href="#" rel="noopener">YouTube</a>
-        <a class="btn" href="#" rel="noopener">RSS</a>
+        <a class="btn" href="https://www.youtube.com/watch?v=2Tdmh2HjbcA" target="_blank" rel="noopener noreferrer">Ver episodio piloto</a>
       </div>
+        <div class="social-strip"><a href="https://x.com/seifreed" target="_blank" rel="noopener noreferrer">El Capo en X · @seifreed</a></div>
     </div>
   </section>
 </main>
@@ -348,7 +349,7 @@
 <footer class="site">
   <div class="wrap mono">
     <span>© <span id="y">2026</span> El Sindicato del Hacking</span>
-    <span>Hacking ético. Siempre con permiso.</span>
+    <span>Asuntos digitales. Siempre con permiso.</span>
   </div>
 </footer>
 <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
