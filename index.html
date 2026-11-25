@@ -161,10 +161,6 @@
   .member .social:hover { color: #fff; }
   .family { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .member .portrait { aspect-ratio: 4/4.5; }
-  .ep.pending { cursor: default; }
-  .ep.pending:hover { padding-left: 0; }
-  .ep.pending:hover::after { width: 0; }
-  .ep .status { color: var(--blood-hi); }
   .ep .meta { min-width: 9rem; }
   .listen .listen-note { max-width: 50ch; margin-inline: auto; }
   .topics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); background: var(--line); }
@@ -285,11 +281,11 @@
           <div><h3>Episodio Piloto</h3><p>La primera ronda. Conocemos el Sindicato y ponemos las reglas de la casa.</p></div>
           <div class="meta mono">Ver en YouTube<br><span class="play" aria-hidden="true">▶</span></div>
         </a></li>
-        <li><article class="ep pending" aria-label="Episodio 1, enlace pendiente">
+        <li><a class="ep" href="https://youtu.be/7lndbXG6z6U" target="_blank" rel="noopener noreferrer">
           <span class="n">01</span>
-          <div><h3>La IA ya encuentra bugs. ¿Quién responde?</h3><p>Agentes, exploits y deuda técnica: hasta dónde ayuda la IA en seguridad y dónde empieza el lío.</p></div>
-          <div class="meta mono status">Episodio 1<br>Enlace pendiente</div>
-        </article></li>
+          <div><h3>La IA encontró el bug. El parche vino a cobrar</h3><p>Agentes, exploits y deuda técnica: hasta dónde ayuda la IA en seguridad y dónde empieza el lío.</p></div>
+          <div class="meta mono">Ver en YouTube<br><span class="play" aria-hidden="true">▶</span></div>
+        </a></li>
       </ol>
     </div>
   </section>
@@ -337,8 +333,9 @@
   <section id="escuchar" class="listen">
     <div class="wrap">
         <h2>Siéntate <em>a la mesa</em></h2>
-        <p class="listen-note">Empieza por el piloto. El enlace del episodio 1 aparecerá aquí cuando esté publicado; no vamos a dejarte un botón que no lleva a ningún sitio.</p>
+        <p class="listen-note">El piloto abrió la mesa. El primer caso ya está publicado: la IA encontró el bug y el parche vino a cobrar.</p>
       <div class="platforms">
+        <a class="btn" href="https://youtu.be/7lndbXG6z6U" target="_blank" rel="noopener noreferrer">Ver episodio 1</a>
         <a class="btn" href="https://www.youtube.com/watch?v=2Tdmh2HjbcA" target="_blank" rel="noopener noreferrer">Ver episodio piloto</a>
       </div>
         <div class="social-strip"><a href="https://x.com/seifreed" target="_blank" rel="noopener noreferrer">El Capo en X · @seifreed</a></div>
